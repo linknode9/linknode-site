@@ -83,12 +83,33 @@
       align-items: center;
       gap: 10px;
       color: var(--ink);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.13em;
       text-decoration: none;
     }
+
+    .logo-type {
+      font-family: "Courier New", "Nimbus Mono PS", ui-monospace, monospace;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      line-height: 1;
+      text-shadow: 0.025em 0.018em 0 rgba(17, 17, 16, 0.3);
+    }
+
+    .header-wordmark {
+      display: flex;
+      align-items: baseline;
+      padding-left: 0.08em;
+      font-size: 13px;
+    }
+
+    .logo-type > span { display: inline-block; transform: translateY(var(--y)) rotate(var(--r)); }
+    .logo-type > span:nth-child(1) { --delay: 0.16s; --r: -0.8deg; --y: 1px; }
+    .logo-type > span:nth-child(2) { --delay: 0.195s; --r: 0.6deg; --y: -1px; }
+    .logo-type > span:nth-child(3) { --delay: 0.23s; --r: -0.4deg; --y: 0px; }
+    .logo-type > span:nth-child(4) { --delay: 0.265s; --r: 0.3deg; --y: 1px; }
+    .logo-type > span:nth-child(5) { --delay: 0.3s; --r: -0.7deg; --y: -1px; }
+    .logo-type > span:nth-child(6) { --delay: 0.335s; --r: 0.4deg; --y: 0px; }
+    .logo-type > span:nth-child(7) { --delay: 0.37s; --r: -0.2deg; --y: 1px; }
+    .logo-type > span:nth-child(8) { --delay: 0.405s; --r: 0.7deg; --y: 0px; }
 
     .mini-mark { width: 20px; height: 20px; overflow: visible; }
 
@@ -240,12 +261,7 @@
       padding-left: 0.14em;
       opacity: 0;
       clip-path: inset(0 100% 0 0);
-      font-family: "Courier New", "Nimbus Mono PS", ui-monospace, monospace;
       font-size: clamp(22px, 5vw, 34px);
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      line-height: 1;
-      text-shadow: 0.025em 0.018em 0 rgba(17, 17, 16, 0.3);
       transition: clip-path 0.58s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.01s linear;
     }
 
@@ -254,15 +270,6 @@
       opacity: 0;
       transform: translateY(4px) rotate(var(--r));
     }
-
-    .final-wordmark span:nth-child(1) { --delay: 0.16s; --r: -0.8deg; --y: 1px; }
-    .final-wordmark span:nth-child(2) { --delay: 0.195s; --r: 0.6deg; --y: -1px; }
-    .final-wordmark span:nth-child(3) { --delay: 0.23s; --r: -0.4deg; --y: 0px; }
-    .final-wordmark span:nth-child(4) { --delay: 0.265s; --r: 0.3deg; --y: 1px; }
-    .final-wordmark span:nth-child(5) { --delay: 0.3s; --r: -0.7deg; --y: -1px; }
-    .final-wordmark span:nth-child(6) { --delay: 0.335s; --r: 0.4deg; --y: 0px; }
-    .final-wordmark span:nth-child(7) { --delay: 0.37s; --r: -0.2deg; --y: 1px; }
-    .final-wordmark span:nth-child(8) { --delay: 0.405s; --r: 0.7deg; --y: 0px; }
 
     .swap-scan {
       position: absolute;
@@ -473,6 +480,9 @@
 
     .about-copy { margin-top: 28px; }
 
+    .about-copy p { margin: 0; }
+    .about-copy p + p { margin-top: 1em; }
+
     .profile-list { margin: 0; border-top: 1px solid var(--line); }
 
     .profile-row {
@@ -589,7 +599,16 @@
         <circle cx="7.1" cy="19" r="1.8" fill="currentColor" />
         <circle cx="16.3" cy="19.2" r="1.8" fill="currentColor" />
       </svg>
-      LINKNODE
+      <span class="header-wordmark logo-type" aria-hidden="true">
+        <span>L</span>
+        <span>I</span>
+        <span>N</span>
+        <span>K</span>
+        <span>N</span>
+        <span>O</span>
+        <span>D</span>
+        <span>E</span>
+      </span>
     </a>
     <nav class="site-nav" aria-label="メインナビゲーション">
       <a href="#services">SERVICES</a>
@@ -621,7 +640,7 @@
             <span class="prompt">&gt;</span>
             <span class="typed"></span><span class="cursor">_</span>
           </span>
-          <span class="final-wordmark" aria-hidden="true">
+          <span class="final-wordmark logo-type" aria-hidden="true">
             <span>L</span>
             <span>I</span>
             <span>N</span>
@@ -668,10 +687,15 @@
       <p class="section-label reveal">About</p>
       <div class="about-grid">
         <div class="reveal">
-          <h2 class="about-heading" id="about-title">Small tools.<br>Clear links.</h2>
-          <p class="about-copy">
-            大きな機能を詰め込むより、本当に必要な一歩を軽くする。人と知識、人と技術のあいだに、わかりやすい接点をつくることがLINKNODEの仕事です。
-          </p>
+          <h2 class="about-heading" id="about-title">Value is already there.<br>We make the link.</h2>
+          <div class="about-copy">
+            <p>
+              小さな点の一つひとつに、まだ形になっていない価値があります。知識や技術、誰かの経験も、ちょっとした接点によって、学べるもの、調べられるもの、使えるものへ変わります。
+            </p>
+            <p>
+              LINKNODEがつくるのは、その接点です。大きな機能を詰め込むのではなく、本当に必要な最初の一歩を軽くし、すでにある価値を使える形につなぎます。
+            </p>
+          </div>
         </div>
         <dl class="profile-list reveal">
           <div class="profile-row">
