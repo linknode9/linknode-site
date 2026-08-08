@@ -9,7 +9,7 @@
     name="description"
     content="LINKNODEは、難しいことをわかる形に変え、非エンジニアにも届く小さく実用的なアプリをつくっています。"
   >
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M18 12.5C18 24 17 38 18.5 46c8 1 19-.5 31 .5' fill='none' stroke='%23111110' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='18' cy='12' r='5' fill='%23111110'/%3E%3Ccircle cx='18' cy='46' r='5' fill='%23111110'/%3E%3Ccircle cx='50' cy='46.5' r='5' fill='%23111110'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M20 8.5C20 23 19 40 20 51c7 1 14-.5 23 .5' fill='none' stroke='%23111110' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='20' cy='8.5' r='5' fill='%23111110'/%3E%3Ccircle cx='20' cy='51' r='5' fill='%23111110'/%3E%3Ccircle cx='43' cy='51.5' r='5' fill='%23111110'/%3E%3C/svg%3E">
   <style>
     :root {
       color-scheme: light;
@@ -163,15 +163,15 @@
     .mark-line-ghost { stroke-width: 1.15; opacity: 0.34; }
 
     .line-vertical {
-      stroke-dasharray: 139;
-      stroke-dashoffset: 139;
-      animation: draw-line 0.9s cubic-bezier(0.62, 0, 0.26, 1) 0.72s forwards;
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      animation: draw-line 1.04s cubic-bezier(0.62, 0, 0.26, 1) 0.72s forwards;
     }
 
     .line-horizontal {
-      stroke-dasharray: 177;
-      stroke-dashoffset: 177;
-      animation: draw-line 1.02s cubic-bezier(0.62, 0, 0.26, 1) 1.58s forwards;
+      stroke-dasharray: 104;
+      stroke-dashoffset: 104;
+      animation: draw-line 0.72s cubic-bezier(0.62, 0, 0.26, 1) 1.72s forwards;
     }
 
     .node {
@@ -182,9 +182,9 @@
       animation: node-arrive 0.32s ease-out forwards;
     }
 
-    .node:nth-of-type(1) { animation-delay: 0.04s; }
-    .node:nth-of-type(2) { animation-delay: 0.16s; }
-    .node:nth-of-type(3) { animation-delay: 0.28s; }
+    .node-1 { animation-delay: 0.04s; }
+    .node-2 { animation-delay: 0.16s; }
+    .node-3 { animation-delay: 0.28s; }
 
     @keyframes node-arrive {
       0% { opacity: 0; transform: scale(0.68); }
@@ -195,9 +195,11 @@
     @keyframes draw-line { to { stroke-dashoffset: 0; } }
 
     .terminal-name {
-      display: flex;
-      align-items: baseline;
-      min-height: 1.5em;
+      position: relative;
+      display: grid;
+      width: min(90vw, 390px);
+      min-height: 1.7em;
+      place-items: center;
       margin-top: clamp(18px, 3.4vh, 31px);
       opacity: 0;
       color: var(--ink);
@@ -209,6 +211,16 @@
     }
 
     .terminal-name.is-typing { opacity: 1; }
+
+    .terminal-line {
+      display: flex;
+      grid-area: 1 / 1;
+      align-items: baseline;
+      justify-content: center;
+      clip-path: inset(0 0 0 0);
+      transition: clip-path 0.58s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.08s linear 0.5s;
+    }
+
     .prompt { margin-right: 0.48em; }
 
     .cursor {
@@ -219,6 +231,79 @@
     }
 
     @keyframes cursor-blink { 50% { opacity: 0; } }
+
+    .final-wordmark {
+      display: flex;
+      grid-area: 1 / 1;
+      align-items: baseline;
+      justify-content: center;
+      padding-left: 0.14em;
+      opacity: 0;
+      clip-path: inset(0 100% 0 0);
+      font-family: "Courier New", "Nimbus Mono PS", ui-monospace, monospace;
+      font-size: clamp(22px, 5vw, 34px);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      line-height: 1;
+      text-shadow: 0.025em 0.018em 0 rgba(17, 17, 16, 0.3);
+      transition: clip-path 0.58s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.01s linear;
+    }
+
+    .final-wordmark span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(4px) rotate(var(--r));
+    }
+
+    .final-wordmark span:nth-child(1) { --delay: 0.16s; --r: -0.8deg; --y: 1px; }
+    .final-wordmark span:nth-child(2) { --delay: 0.195s; --r: 0.6deg; --y: -1px; }
+    .final-wordmark span:nth-child(3) { --delay: 0.23s; --r: -0.4deg; --y: 0px; }
+    .final-wordmark span:nth-child(4) { --delay: 0.265s; --r: 0.3deg; --y: 1px; }
+    .final-wordmark span:nth-child(5) { --delay: 0.3s; --r: -0.7deg; --y: -1px; }
+    .final-wordmark span:nth-child(6) { --delay: 0.335s; --r: 0.4deg; --y: 0px; }
+    .final-wordmark span:nth-child(7) { --delay: 0.37s; --r: -0.2deg; --y: 1px; }
+    .final-wordmark span:nth-child(8) { --delay: 0.405s; --r: 0.7deg; --y: 0px; }
+
+    .swap-scan {
+      position: absolute;
+      top: 50%;
+      left: 8%;
+      width: 1.5px;
+      height: 1.75em;
+      opacity: 0;
+      background: var(--ink);
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .terminal-name.is-logo .terminal-line {
+      opacity: 0;
+      clip-path: inset(0 0 0 100%);
+    }
+
+    .terminal-name.is-logo .final-wordmark {
+      opacity: 1;
+      clip-path: inset(0 0 0 0);
+    }
+
+    .terminal-name.is-logo .final-wordmark span {
+      animation: logo-letter-settle 0.28s ease-out forwards;
+      animation-delay: var(--delay);
+    }
+
+    .terminal-name.is-logo .swap-scan { animation: swap-scan 0.62s cubic-bezier(0.76, 0, 0.24, 1) both; }
+
+    @keyframes swap-scan {
+      0% { left: 8%; opacity: 0; }
+      8%, 88% { opacity: 0.9; }
+      100% { left: 92%; opacity: 0; }
+    }
+
+    @keyframes logo-letter-settle {
+      0% { opacity: 0; transform: translateY(4px) rotate(var(--r)); }
+      65% { opacity: 1; transform: translateY(calc(var(--y) - 1px)) rotate(var(--r)); }
+      100% { opacity: 1; transform: translateY(var(--y)) rotate(var(--r)); }
+    }
 
     .scroll-note {
       position: absolute;
@@ -490,6 +575,7 @@
       .site-header,
       .scroll-note,
       .terminal-name { opacity: 1; transform: none; pointer-events: auto; }
+      .terminal-name.is-logo .final-wordmark span { opacity: 1; transform: translateY(var(--y)) rotate(var(--r)); }
       .reveal { opacity: 1; transform: none; }
     }
   </style>
@@ -498,10 +584,10 @@
   <header class="site-header" aria-label="サイトヘッダー">
     <a class="wordmark" href="#top" aria-label="LINKNODE トップへ">
       <svg class="mini-mark" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M5.5 4.5C5.6 9.2 5.1 14.4 5.8 18.5C10.5 19 14.8 18.1 19.2 18.7" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" />
-        <circle cx="5.5" cy="4.5" r="1.8" fill="currentColor" />
-        <circle cx="5.7" cy="18.5" r="1.8" fill="currentColor" />
-        <circle cx="19.2" cy="18.7" r="1.8" fill="currentColor" />
+        <path d="M7 3.5C7.1 8.5 6.6 14.7 7.2 19C10.6 19.3 13.4 18.7 16.3 19.2" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" />
+        <circle cx="7" cy="3.5" r="1.8" fill="currentColor" />
+        <circle cx="7.1" cy="19" r="1.8" fill="currentColor" />
+        <circle cx="16.3" cy="19.2" r="1.8" fill="currentColor" />
       </svg>
       LINKNODE
     </a>
@@ -519,20 +605,33 @@
           <title id="mark-title">3つのノードを線で結んだLのマーク</title>
           <desc id="mark-desc">3つの黒い点を、縦、横の順に線が結んでLINKNODEのLになります。</desc>
 
-          <path class="mark-line mark-line-ghost line-vertical" d="M102.7 43.3 C102.1 78.8 100.1 133.4 99.4 177.2" />
-          <path class="mark-line mark-line-main line-vertical" d="M101.9 43.1 C102.5 84.5 100.4 132.1 99.7 177.5" />
-          <path class="mark-line mark-line-ghost line-horizontal" d="M99.8 178.2 C147.2 179.8 214.4 176.9 270.5 179.6" />
-          <path class="mark-line mark-line-main line-horizontal" d="M99.7 177.6 C146.9 178.7 215.6 177.3 270.4 179.1" />
+          <path class="mark-line mark-line-ghost line-vertical" d="M132.8 31.5 C132 73.8 131.5 135.6 130.4 190.4" />
+          <path class="mark-line mark-line-main line-vertical" d="M131.9 31.2 C132.7 78.4 130.9 138.4 130.3 190.8" />
+          <path class="mark-line mark-line-ghost line-horizontal" d="M130.2 190.7 C157.8 190.3 196.4 191.9 228.3 192.1" />
+          <path class="mark-line mark-line-main line-horizontal" d="M130.1 190.4 C159.6 191.5 197.7 190.9 228.5 192" />
 
-          <path class="node" d="M93.5 42.4C93.2 36.5 97.6 32.8 102.6 33.2C108.5 33.6 111.4 37.8 110.8 43.2C110.1 49 105.9 51.9 100.6 51.4C95.4 50.9 93.8 47.5 93.5 42.4Z" />
-          <path class="node" d="M90.4 177.3C90.6 171.9 94.2 168.5 99.8 168.6C105.5 168.7 108.8 172.2 108.7 177.9C108.5 183.7 104.9 186.6 99.4 186.2C94 185.8 90.1 182.9 90.4 177.3Z" />
-          <path class="node" d="M261.4 178.6C261.6 173.2 265.3 170 270.8 170.2C276.6 170.5 279.8 173.9 279.4 179.3C279 184.8 275.5 187.5 270 187.1C264.5 186.7 261.2 183.9 261.4 178.6Z" />
+          <path class="node node-1" d="M123 30.8C123.1 25.3 126.8 21.8 132.3 22C138.1 22.2 141.3 25.7 140.9 31.3C140.5 36.9 136.9 39.8 131.5 39.4C126.1 39 122.8 36.2 123 30.8Z" />
+          <path class="node node-2" d="M121 190.1C121.2 184.7 124.8 181.3 130.4 181.4C136.1 181.5 139.4 185 139.3 190.7C139.1 196.5 135.5 199.4 130 199C124.6 198.6 120.7 195.7 121 190.1Z" />
+          <path class="node node-3" d="M219.1 191.5C219.3 186.1 223 182.9 228.5 183.1C234.3 183.4 237.5 186.8 237.1 192.2C236.7 197.7 233.2 200.4 227.7 200C222.2 199.6 218.9 196.8 219.1 191.5Z" />
         </svg>
 
         <h1 class="terminal-name" id="hero-title">
           <span class="sr-only">LINKNODE</span>
-          <span class="prompt" aria-hidden="true">&gt;</span>
-          <span class="typed" aria-hidden="true"></span><span class="cursor" aria-hidden="true">_</span>
+          <span class="terminal-line" aria-hidden="true">
+            <span class="prompt">&gt;</span>
+            <span class="typed"></span><span class="cursor">_</span>
+          </span>
+          <span class="final-wordmark" aria-hidden="true">
+            <span>L</span>
+            <span>I</span>
+            <span>N</span>
+            <span>K</span>
+            <span>N</span>
+            <span>O</span>
+            <span>D</span>
+            <span>E</span>
+          </span>
+          <span class="swap-scan" aria-hidden="true"></span>
         </h1>
       </div>
       <div class="scroll-note" aria-hidden="true">SCROLL</div>
@@ -618,10 +717,10 @@
 
       if (reducedMotion) {
         typed.textContent = word;
-        terminal.classList.add('is-typing');
+        terminal.classList.add('is-typing', 'is-logo');
         completeSequence();
       } else {
-        const startTyping = 2780;
+        const startTyping = 2680;
         window.setTimeout(() => {
           terminal.classList.add('is-typing');
           let index = 0;
@@ -630,7 +729,8 @@
             index += 1;
             if (index >= word.length) {
               window.clearInterval(timer);
-              window.setTimeout(completeSequence, 320);
+              window.setTimeout(() => terminal.classList.add('is-logo'), 620);
+              window.setTimeout(completeSequence, 1500);
             }
           }, 105);
         }, startTyping);
