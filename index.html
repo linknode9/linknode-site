@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f1e9">
-  <title>LINKNODE — 小さく、実用的なアプリを。</title>
+  <title>LINKNODE — 打倒、わかりづらさ。</title>
   <meta
     name="description"
-    content="LINKNODEは、難しいことをわかる形に変え、非エンジニアにも届く小さく実用的なアプリをつくっています。"
+    content="LINKNODEは、学びや日常の「わからない」「使いづらい」を減らす、実用的なアプリをつくっています。"
   >
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M20 8.5C20 23 19 40 20 51c7 1 14-.5 23 .5' fill='none' stroke='%23111110' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='20' cy='8.5' r='5' fill='%23111110'/%3E%3Ccircle cx='20' cy='51' r='5' fill='%23111110'/%3E%3Ccircle cx='43' cy='51.5' r='5' fill='%23111110'/%3E%3C/svg%3E">
   <style>
@@ -19,6 +19,7 @@
       --muted: #706d66;
       --line: rgba(17, 17, 16, 0.22);
       --max: 1180px;
+      --font-sans: "Helvetica", "Helvetica Neue", Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
     }
 
     * { box-sizing: border-box; }
@@ -36,7 +37,7 @@
         radial-gradient(circle at 82% 67%, rgba(17, 17, 16, 0.014) 0 0.6px, transparent 0.9px) 0 0 / 11px 11px,
         var(--paper);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+      font-family: var(--font-sans);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -110,7 +111,7 @@
       display: flex;
       align-items: center;
       gap: clamp(18px, 3vw, 38px);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: var(--font-sans);
       font-size: 11px;
       letter-spacing: 0.08em;
     }
@@ -220,7 +221,7 @@
       gap: 10px;
       opacity: 0;
       color: var(--muted);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: var(--font-sans);
       font-size: 9px;
       letter-spacing: 0.18em;
       transform: translate(-50%, 8px);
@@ -256,8 +257,9 @@
     .section-label {
       margin: 0 0 clamp(36px, 7vw, 78px);
       color: var(--muted);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: var(--font-sans);
       font-size: 10px;
+      font-weight: 400;
       letter-spacing: 0.15em;
       text-transform: uppercase;
     }
@@ -328,7 +330,7 @@
     .service-index,
     .service-status,
     .service-arrow {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: var(--font-sans);
       font-size: 10px;
       letter-spacing: 0.1em;
     }
@@ -369,18 +371,21 @@
       gap: clamp(60px, 13vw, 180px);
     }
 
-    .about-heading {
-      margin: 0;
-      font-size: clamp(38px, 6vw, 74px);
-      font-weight: 500;
-      letter-spacing: -0.055em;
-      line-height: 1.1;
-    }
-
-    .about-copy { margin-top: 28px; }
+    .about-copy { font-size: clamp(16px, 1.5vw, 18px); }
 
     .about-copy p { margin: 0; }
     .about-copy p + p { margin-top: 1em; }
+
+    .about-signature {
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      line-height: 1.7;
+    }
+
+    .about-signature span { display: inline-block; }
 
     .profile-list { margin: 0; border-top: 1px solid var(--line); }
 
@@ -394,7 +399,7 @@
 
     .profile-row dt {
       color: var(--muted);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: var(--font-sans);
       font-size: 10px;
       letter-spacing: 0.08em;
     }
@@ -409,7 +414,7 @@
     .contact-link {
       display: inline-block;
       max-width: 100%;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: var(--font-sans);
       font-size: clamp(25px, 5.4vw, 70px);
       letter-spacing: -0.045em;
       text-decoration: none;
@@ -430,7 +435,7 @@
       margin-inline: auto;
       padding: 28px 0 42px;
       color: var(--muted);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: var(--font-sans);
       font-size: 10px;
       letter-spacing: 0.08em;
     }
@@ -653,9 +658,10 @@
     <section class="section" aria-labelledby="statement-title">
       <p class="section-label reveal">What we do</p>
       <div class="statement">
-        <h2 class="reveal" id="statement-title">わからないを<br>形ある価値へつなぐ</h2>
+        <h2 class="reveal" id="statement-title">打倒、<br>わかりづらさ。</h2>
         <p class="reveal">
-          難しい言葉や複雑な仕組みを、最初の一歩から使える形へ。LINKNODEは、学ぶ・調べる・理解するための、小さく実用的なアプリをつくっています。
+          難しい言葉も、複雑な仕組みも、もっとわかりやすく、使いやすく。<br>
+          LINKNODEは、学びや日常の「わからない」「使いづらい」を減らす、実用的なアプリをつくっています。
         </p>
       </div>
     </section>
@@ -667,7 +673,7 @@
           <span class="service-index">01</span>
           <div class="service-copy">
             <h3>IT Logic</h3>
-            <p>比較でわかる、オフラインIT用語辞典。生成AIや最新のIT用語にも対応し、「なんとなく」を正式な理解へつなぎます。</p>
+            <p>似た言葉の違いからわかる、IT用語辞典。<br>「聞いたことはあるけれど、説明できない」を、ひとつずつ。用語の意味と違いを比較しながら、理解を深められます。</p>
           </div>
           <span class="service-meta">
             <span class="service-status">AVAILABLE</span>
@@ -678,18 +684,15 @@
     </section>
 
     <section class="section" id="about" aria-labelledby="about-title">
-      <p class="section-label reveal">About</p>
+      <h2 class="section-label reveal" id="about-title">About</h2>
       <div class="about-grid">
         <div class="reveal">
-          <h2 class="about-heading" id="about-title">Value is already there.<br>We make the link.</h2>
           <div class="about-copy">
-            <p>
-              小さな点の一つひとつに、まだ形になっていない価値があります。知識や技術、誰かの経験も、ちょっとした接点によって、学べるもの、調べられるもの、使えるものへ変わります。
-            </p>
-            <p>
-              LINKNODEがつくるのは、その接点です。大きな機能を詰め込むのではなく、本当に必要な最初の一歩を軽くし、すでにある価値を使える形につなぎます。
-            </p>
+            <p>役立つ知識や仕組みは、すでにある。</p>
+            <p>でも、見つけにくかったり、使い方がわからなかったりする。</p>
+            <p>LINKNODEは、その間をつなぎ、日常で使える形にします。</p>
           </div>
+          <p class="about-signature" lang="en"><span>Value is already there.</span> <span>We make the link.</span></p>
         </div>
         <dl class="profile-list reveal">
           <div class="profile-row">
