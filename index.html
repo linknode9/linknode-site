@@ -26,6 +26,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: calc(88px + env(safe-area-inset-top, 0px));
       background: var(--paper);
     }
 
@@ -65,12 +66,13 @@
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      padding: 22px clamp(20px, 4vw, 60px);
+      padding: calc(22px + env(safe-area-inset-top, 0px)) clamp(20px, 4vw, 60px) 22px;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
       opacity: 0;
       pointer-events: none;
       transform: translateY(-8px);
       transition: opacity 0.6s ease, transform 0.6s ease;
-      mix-blend-mode: multiply;
     }
 
     .sequence-complete .site-header {
@@ -440,7 +442,7 @@
     :focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
 
     @media (max-width: 720px) {
-      .site-header { padding: 19px 20px; }
+      .site-header { padding: calc(19px + env(safe-area-inset-top, 0px)) 20px 19px; }
       .site-nav a:not(:last-child) { display: none; }
       .hero-inner { transform: translateY(-2vh); }
       .wordmark-stage { width: min(92vw, 620px); }
