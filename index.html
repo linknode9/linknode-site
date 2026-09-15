@@ -328,15 +328,6 @@
       transition: transform 0.48s cubic-bezier(0.7, 0, 0.22, 1);
     }
 
-    .service-card:hover,
-    .service-card:focus-visible {
-      color: var(--paper);
-      outline: none;
-    }
-
-    .service-card:hover::before,
-    .service-card:focus-visible::before { transform: translateY(0); }
-
     .service-card > * { position: relative; z-index: 1; }
 
     .service-index,
@@ -374,8 +365,24 @@
       transition: transform 0.3s ease;
     }
 
-    .service-card:hover .service-arrow,
-    .service-card:focus-visible .service-arrow { transform: translate(4px, -4px); }
+    @media (hover: hover) and (pointer: fine) {
+      .service-card:hover,
+      .service-card:focus-visible { color: var(--paper); }
+
+      .service-card:hover::before,
+      .service-card:focus-visible::before { transform: translateY(0); }
+
+      .service-card:hover .service-arrow,
+      .service-card:focus-visible .service-arrow { transform: translate(4px, -4px); }
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .service-card { transition: background-color 0.12s ease; }
+      .service-card::before { display: none; }
+      .service-card:active { background-color: var(--paper-deep); }
+      .service-card .service-arrow { transition: transform 0.12s ease; }
+      .service-card:active .service-arrow { transform: translate(2px, -2px); }
+    }
 
     .profile-list { margin: 0; border-top: 1px solid var(--line); }
 
@@ -511,6 +518,7 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
       }
+      .service-card .service-arrow { transform: none !important; }
       .build-letter { display: none; }
       .final-letter { opacity: 1; }
       .site-header { opacity: 1; transform: none; pointer-events: auto; }
