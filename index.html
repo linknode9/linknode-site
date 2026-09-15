@@ -360,6 +360,24 @@
       white-space: nowrap;
     }
 
+    .service-stores { gap: 12px; }
+
+    .store-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid currentColor;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+    }
+
+    .store-link:focus-visible { outline-color: currentColor; }
+
     .service-arrow {
       font-size: 24px;
       transition: transform 0.3s ease;
@@ -367,10 +385,12 @@
 
     @media (hover: hover) and (pointer: fine) {
       .service-card:hover,
-      .service-card:focus-visible { color: var(--paper); }
+      .service-card:focus-visible,
+      .service-card-multi:focus-within { color: var(--paper); }
 
       .service-card:hover::before,
-      .service-card:focus-visible::before { transform: translateY(0); }
+      .service-card:focus-visible::before,
+      .service-card-multi:focus-within::before { transform: translateY(0); }
 
       .service-card:hover .service-arrow,
       .service-card:focus-visible .service-arrow { transform: translate(4px, -4px); }
@@ -505,6 +525,7 @@
         align-items: center;
         width: 100%;
       }
+      .service-stores { grid-auto-flow: row; justify-content: stretch; }
       .profile-row { grid-template-columns: 92px 1fr; }
       .site-footer { flex-direction: column; }
     }
@@ -657,17 +678,17 @@
     <section class="section" id="services" aria-labelledby="services-title">
       <h2 class="section-label reveal" id="services-title">Services</h2>
       <div class="services-grid reveal">
-        <a class="service-card" href="https://apps.apple.com/jp/app/id6778844021" target="_blank" rel="noopener noreferrer">
+        <article class="service-card service-card-multi" aria-label="IT Logic">
           <span class="service-index">01</span>
           <div class="service-copy">
             <h3>IT Logic</h3>
             <p>似た言葉の違いからわかる、IT用語辞典。<br>「聞いたことはあるけれど、説明できない」を、ひとつずつ。用語の意味と違いを比較しながら、理解を深められます。</p>
           </div>
-          <span class="service-meta">
-            <span class="service-status">APP STORE</span>
-            <span class="service-arrow" aria-hidden="true">↗</span>
-          </span>
-        </a>
+          <div class="service-meta service-stores">
+            <a class="store-link" href="https://apps.apple.com/jp/app/id6778844021" target="_blank" rel="noopener noreferrer" aria-label="IT LogicをApp Storeで見る（新しいタブで開きます）"><span>APP STORE</span><span class="service-arrow" aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://play.google.com/store/apps/details?id=dev.linknode.itlogic" target="_blank" rel="noopener noreferrer" aria-label="IT LogicをGoogle Playで見る（新しいタブで開きます）"><span>GOOGLE PLAY</span><span class="service-arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </article>
         <a class="service-card" href="https://apps.apple.com/jp/app/id6787352352" target="_blank" rel="noopener noreferrer">
           <span class="service-index">02</span>
           <div class="service-copy">
@@ -687,6 +708,17 @@
           </div>
           <span class="service-meta">
             <span class="service-status">APP STORE</span>
+            <span class="service-arrow" aria-hidden="true">↗</span>
+          </span>
+        </a>
+        <a class="service-card" href="https://play.google.com/store/apps/details?id=dev.linknode.kyoyo" target="_blank" rel="noopener noreferrer" aria-label="教養サーチをGoogle Playで見る（新しいタブで開きます）">
+          <span class="service-index">04</span>
+          <div class="service-copy">
+            <h3>教養サーチ</h3>
+            <p>気になった言葉から、教養を深める。<br>リベラルアーツの用語を調べ、意味を理解するためのリファレンスアプリです。</p>
+          </div>
+          <span class="service-meta">
+            <span class="service-status">GOOGLE PLAY</span>
             <span class="service-arrow" aria-hidden="true">↗</span>
           </span>
         </a>
