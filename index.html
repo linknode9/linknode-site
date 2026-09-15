@@ -295,8 +295,7 @@
       line-height: 1.18;
     }
 
-    .statement p,
-    .about-copy {
+    .statement p {
       margin: 0;
       color: #47453f;
       font-size: clamp(14px, 1.45vw, 17px);
@@ -377,17 +376,6 @@
 
     .service-card:hover .service-arrow,
     .service-card:focus-visible .service-arrow { transform: translate(4px, -4px); }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.9fr);
-      gap: clamp(60px, 13vw, 180px);
-    }
-
-    .about-copy { font-size: clamp(16px, 1.5vw, 18px); }
-
-    .about-copy p { margin: 0; }
-    .about-copy p + p { margin-top: 1em; }
 
     .profile-list { margin: 0; border-top: 1px solid var(--line); }
 
@@ -494,9 +482,9 @@
       .site-nav a:not(:last-child) { display: none; }
       .hero-inner { transform: translateY(-2vh); }
       .wordmark-stage { width: min(92vw, 620px); }
-      .statement,
-      .about-grid { grid-template-columns: 1fr; }
-      .statement { gap: 34px; }
+      .section { padding-block: 64px; }
+      .section-label { margin-bottom: 28px; }
+      .statement { grid-template-columns: 1fr; gap: 28px; }
       .statement p { max-width: 31em; }
       .service-card {
         grid-template-columns: 42px minmax(0, 1fr);
@@ -651,8 +639,9 @@
       <div class="statement">
         <h2 class="reveal" id="statement-title">打倒、<br>わかりづらさ。</h2>
         <p class="reveal">
-          難しい言葉も、複雑な仕組みも、もっとわかりやすく、使いやすく。<br>
-          LINKNODEは、学びや日常の「わからない」「使いづらい」を減らす、実用的なアプリをつくっています。
+          高度な知識や便利な仕組みは、たくさんあります。<br>
+          でも、必要な人に届いているとは限りません。<br>
+          LINKNODEは、その間をつなぎ、学びや日常で使えるアプリをつくっています。
         </p>
       </div>
     </section>
@@ -698,33 +687,24 @@
 
     <section class="section" id="about" aria-labelledby="about-title">
       <h2 class="section-label reveal" id="about-title">About</h2>
-      <div class="about-grid">
-        <div class="reveal">
-          <div class="about-copy">
-            <p>高度な知識や便利な仕組みは、たくさんあります。</p>
-            <p>でも、必要な人に届いているとは限りません。</p>
-            <p>LINKNODEは、その間をつなぎ、使える形で届けます。</p>
-          </div>
+      <dl class="profile-list reveal">
+        <div class="profile-row">
+          <dt>NAME</dt>
+          <dd>LINKNODE</dd>
         </div>
-        <dl class="profile-list reveal">
-          <div class="profile-row">
-            <dt>NAME</dt>
-            <dd>LINKNODE</dd>
-          </div>
-          <div class="profile-row">
-            <dt>BASE</dt>
-            <dd>Tokyo, Japan</dd>
-          </div>
-          <div class="profile-row">
-            <dt>WORK</dt>
-            <dd>アプリケーションの企画・開発・運営</dd>
-          </div>
-          <div class="profile-row">
-            <dt>FOCUS</dt>
-            <dd>Learning / Utility / Accessibility</dd>
-          </div>
-        </dl>
-      </div>
+        <div class="profile-row">
+          <dt>BASE</dt>
+          <dd>Tokyo, Japan</dd>
+        </div>
+        <div class="profile-row">
+          <dt>WORK</dt>
+          <dd>アプリケーションの企画・開発・運営</dd>
+        </div>
+        <div class="profile-row">
+          <dt>FOCUS</dt>
+          <dd>Learning / Utility / Accessibility</dd>
+        </div>
+      </dl>
     </section>
 
     <section class="section contact-section" id="contact" aria-labelledby="contact-title">
