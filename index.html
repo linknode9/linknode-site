@@ -306,6 +306,13 @@
 
     .services-grid { display: grid; gap: 1px; background: var(--line); }
 
+    .guide-intro { max-width: 40em; font-size: 16px; line-height: 1.9; }
+    .guide-link { display: block; padding: 28px 0; border-block: 1px solid var(--line); text-decoration: none; }
+    .guide-link small { color: var(--muted); font-size: 13px; }
+    .guide-link h3 { margin: 12px 0; font-size: clamp(22px, 3vw, 36px); font-weight: 500; line-height: 1.5; }
+    .guide-link p { line-height: 1.8; }
+    .guide-link:hover h3 { text-decoration: underline; text-underline-offset: 6px; }
+
     .service-card {
       position: relative;
       display: grid;
@@ -509,6 +516,8 @@
     @media (max-width: 720px) {
       .site-header { padding: calc(19px + env(safe-area-inset-top, 0px)) 20px 19px; }
       .site-nav a:not(:last-child) { display: none; }
+      .site-nav a.guide-nav { display: inline; }
+      .site-nav { gap: 14px; }
       .hero-inner { transform: translateY(-2vh); }
       .wordmark-stage { width: min(100%, 620px); }
       .section { padding-block: 64px; }
@@ -598,6 +607,7 @@
     </a>
     <nav class="site-nav" aria-label="メインナビゲーション">
       <a href="#services">SERVICES</a>
+      <a class="guide-nav" href="/guides/">学習ガイド</a>
       <a href="#about">ABOUT</a>
       <a href="#contact">CONTACT</a>
     </nav>
@@ -725,6 +735,18 @@
           </span>
         </a>
       </div>
+    </section>
+
+    <section class="section" id="guides" aria-labelledby="guides-title">
+      <h2 class="section-label" id="guides-title">学習ガイド</h2>
+      <p class="guide-intro">「わからない」を、一問ずつ。<br>図と例題で、考え方を整理する短い解説です。</p>
+      <a class="guide-link" href="/guides/spi-percentage/">
+        <small>SPI 3-G対策の基礎 ／ 割合</small>
+        <h3>35％は、30％と5％に分けて考える。</h3>
+        <p>240人の35％は何人？ 10％を手がかりに、一段ずつ確かめます。</p>
+        <span>解説を読む →</span>
+      </a>
+      <p><a href="/guides/">学習ガイド一覧へ</a></p>
     </section>
 
     <section class="section" id="about" aria-labelledby="about-title">
