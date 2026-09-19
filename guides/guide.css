@@ -8,7 +8,8 @@ a:hover { color: var(--green); }
 .skip { position: absolute; left: 16px; top: -100px; padding: 8px; background: var(--paper); }
 .skip:focus { top: 8px; }
 .header { max-width: 1120px; margin: auto; padding: 24px; display: flex; align-items: center; justify-content: space-between; gap: 18px; border-bottom: 1px solid var(--line); }
-.brand { font-weight: 700; letter-spacing: .08em; text-decoration: none; font-size: 20px; }
+.brand { display: flex; align-items: center; flex: none; width: 148px; max-width: 45%; min-height: 44px; text-decoration: none; }
+.brand img { display: block; width: 100%; height: auto; }
 .header nav { font-size: 14px; }
 main { max-width: 768px; margin: auto; padding: 42px 24px 72px; }
 .breadcrumb { display: flex; flex-wrap: wrap; gap: 8px; color: var(--muted); font-size: 13px; margin-bottom: 36px; }
