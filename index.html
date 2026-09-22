@@ -512,7 +512,7 @@
 
     .music-heading { margin: 0 0 12px; font-size: 13px; font-weight: 400; }
     .music-links { display: flex; flex-wrap: wrap; gap: 8px 28px; }
-    .music-links a, .music-name {
+    .music-links a {
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -832,17 +832,13 @@
           <a href="https://note.com/fit_viper6429" target="_blank" rel="noopener noreferrer" aria-label="noteでLINKNODEを読む（新しいタブで開きます）"><img class="social-icon" src="/assets/social/note.svg" width="20" height="20" alt=""><span>note</span><span aria-hidden="true">↗</span></a>
         </nav>
       </div>
-      <!-- Enable after the owner provides the MUSIC URL: replace the name with an
-           external anchor, then unwrap this template. Add MUSIC POP as a sibling
-           link when its URL is available; do not publish placeholder links. -->
-      <template id="music-links-draft">
-        <aside class="music-block" aria-labelledby="music-title">
-          <h3 class="music-heading" id="music-title">音楽</h3>
-          <nav class="music-links" aria-label="LINKNODEの音楽プロジェクト">
-            <span class="music-name">LINKNODE MUSIC</span>
-          </nav>
-        </aside>
-      </template>
+      <aside class="music-block" aria-labelledby="music-title">
+        <h3 class="music-heading" id="music-title">音楽</h3>
+        <nav class="music-links" aria-label="LINKNODEの音楽プロジェクト">
+          <a href="https://www.youtube.com/@linknodemusic" target="_blank" rel="noopener noreferrer" aria-label="YouTubeでLINKNODE MUSICを聴く（新しいタブで開きます）"><span>LINKNODE MUSIC</span><span aria-hidden="true">↗</span></a>
+          <!-- Add LINKNODE MUSIC POP here when its channel URL is available. -->
+        </nav>
+      </aside>
     </section>
   </main>
 
