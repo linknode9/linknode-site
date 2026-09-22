@@ -503,6 +503,31 @@
       color: var(--paper);
     }
 
+    .music-block {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .music-heading { margin: 0 0 12px; font-size: 13px; font-weight: 400; }
+    .music-links { display: flex; flex-wrap: wrap; gap: 8px 28px; }
+    .music-links a, .music-name {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 44px;
+      color: inherit;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+    .music-links a:hover, .music-links a:focus-visible {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
     .site-footer {
       display: flex;
       justify-content: space-between;
@@ -803,9 +828,21 @@
           <a href="https://x.com/linknode_apps" target="_blank" rel="noopener noreferrer" aria-label="XでLINKNODEを見る（新しいタブで開きます）"><img class="social-icon" src="/assets/social/x.svg" width="20" height="20" alt=""><span>X</span><span aria-hidden="true">↗</span></a>
           <a href="https://www.instagram.com/linknode_apps/" target="_blank" rel="noopener noreferrer" aria-label="InstagramでLINKNODEを見る（新しいタブで開きます）"><img class="social-icon" src="/assets/social/instagram.svg" width="20" height="20" alt=""><span>Instagram</span><span aria-hidden="true">↗</span></a>
           <a href="https://www.tiktok.com/@linknode.apps" target="_blank" rel="noopener noreferrer" aria-label="TikTokでLINKNODEを見る（新しいタブで開きます）"><img class="social-icon" src="/assets/social/tiktok.svg" width="20" height="20" alt=""><span>TikTok</span><span aria-hidden="true">↗</span></a>
+          <a href="https://www.youtube.com/@linknode_apps" target="_blank" rel="noopener noreferrer" aria-label="YouTubeでLINKNODEを見る（新しいタブで開きます）"><img class="social-icon" src="/assets/social/youtube.svg" width="20" height="20" alt=""><span>YouTube</span><span aria-hidden="true">↗</span></a>
           <a href="https://note.com/fit_viper6429" target="_blank" rel="noopener noreferrer" aria-label="noteでLINKNODEを読む（新しいタブで開きます）"><img class="social-icon" src="/assets/social/note.svg" width="20" height="20" alt=""><span>note</span><span aria-hidden="true">↗</span></a>
         </nav>
       </div>
+      <!-- Enable after the owner provides the MUSIC URL: replace the name with an
+           external anchor, then unwrap this template. Add MUSIC POP as a sibling
+           link when its URL is available; do not publish placeholder links. -->
+      <template id="music-links-draft">
+        <aside class="music-block" aria-labelledby="music-title">
+          <h3 class="music-heading" id="music-title">音楽</h3>
+          <nav class="music-links" aria-label="LINKNODEの音楽プロジェクト">
+            <span class="music-name">LINKNODE MUSIC</span>
+          </nav>
+        </aside>
+      </template>
     </section>
   </main>
 
