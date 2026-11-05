@@ -16,6 +16,14 @@ DNS(apex→GitHub Pages) Aレコード: 185.199.108.153 / 185.199.109.153 / 185.
 ## SPIアプリの案内（2026-10-29）
 
 - `/spi3/` は、転職者向けSPI3-Gアプリの紹介・無料範囲・ストアへの入口。SNSのプロフィールや紹介先にはこのURLを使える。
-- iPhone版の説明は、2026-10-29にApple公開データで確認したv1.9.0に基づく。Androidの機能差はGoogle Playを参照する。
+- 両版に共通する学習内容・無料範囲・買い切り機能は、2026-11-05に各ストアの掲載情報で照合したもの。対応範囲の違いは各ストアの最新情報を優先する。
 - トップのSPI紹介と割合記事の末尾から接続。SPI専用noteへのリンクも案内ページに置く。
-- ストアリンクは通常のURL。Appleの計測用provider tokenは未設定で、リンク別のダウンロード計測は未導入。UTMだけでApp Storeの成果計測ができるとは扱わない。
+- Appleの計測用provider tokenは未設定。iPhone版のリンクは通常のURLで、UTMだけでApp Storeの成果計測ができるとは扱わない。
+
+## Android版への入口（2026-11-05）
+
+- `/spi3/` のiPhone版・Android版ボタンを同じ見た目にし、どちらも無料体験への入口であることを明記した。短期プランなど買い切り機能の区別も近くに置く。
+- SPIのGoogle Playリンクだけに、入口を区別するUTM sourceと共通campaignを付ける。sourceは `linknode_site_home`、`linknode_site_spi3`、`linknode_site_guide`。campaignは `spi_android_20261105`。
+- UTMをURLパラメータに指定し、同じ値をPlay Install Referrer形式でも渡す。新しい解析SDK・Cookie・学習履歴送信は追加しない。
+- Play Consoleのストア掲載情報で「広告と参照」「UTM source」「UTM campaign」を使って入口別の訪問・クリックを確認する。少数の場合は「その他」にまとまることがある。URLを付けただけでレポート反映・購入への貢献が確認できたとは扱わない。
+- インストールボタンのクリック率（CTR）と実際のユーザー獲得・注文は別々に確認する。既存の検索流入と外部リンク経由も分け、同じ長さの期間で比較する。
